@@ -1,0 +1,20 @@
+{
+  "name": "mars-rover",
+  "version": "0.0.1",
+  "description": "An attempt at the mars rover kata in TypeScript: https://code.google.com/archive/p/marsrovertechchallenge/",
+  "main": "index.js",
+  "scripts": {
+    "test": "vitest"
+  },
+  "keywords": [
+    "tdd",
+    "kata"
+  ],
+  "author": "Simon Revill",
+  "license": "MIT",
+  "devDependencies": {
+    "ts-node": "^10.9.2",
+    "typescript": "^5.8.3",
+    "vitest": "^3.1.3"
+  }
+}
