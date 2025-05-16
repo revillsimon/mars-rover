@@ -16,6 +16,19 @@ describe("MissionControl", () => {
       });
     });
 
+    it.each<GridTestInput>(["", "1", "2 "])(
+      "should throw error if there are less than 2 grid coordinate integers passed to the config",
+      (grid) => {
+        // Arrange
+        const config: MissionControlConfig = { grid };
+
+        // Assert
+        expect(() => new MissionControl(config)).toThrowError(
+          "Invalid grid coordinates detected in config. Please enter two positive integers greater than or equal to 2, separated by a space."
+        );
+      }
+    );
+
     it.each<GridTestInput>(["1 2", "2 1"])(
       "should throw error if a specified plateau grid number is less than 2",
       (grid) => {
