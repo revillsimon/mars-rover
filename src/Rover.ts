@@ -52,21 +52,23 @@ export class Rover {
     this.currentHeading = headings[nextIndex];
   }
 
+  private isOnXAxis(): boolean {
+    return this.currentHeading === "W" || this.currentHeading === "E";
+  }
+
   public move(): void {
-    if (this.currentHeading === "E") {
-      this.x = this.x - 1;
+    const nextMoveLocationLookup: Record<Heading, number> = {
+      E: this.x - 1,
+      W: this.x + 1,
+      N: this.y + 1,
+      S: this.y - 1,
+    };
+
+    if (this.isOnXAxis()) {
+      this.x = nextMoveLocationLookup[this.currentHeading];
+      return;
     }
 
-    if (this.currentHeading === "W") {
-      this.x = this.x + 1;
-    }
-
-    if (this.currentHeading === "N") {
-      this.y = this.y + 1;
-    }
-
-    if (this.currentHeading === "S") {
-      this.y = this.y - 1;
-    }
+    this.y = nextMoveLocationLookup[this.currentHeading];
   }
 }
