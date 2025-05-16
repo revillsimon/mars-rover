@@ -1,7 +1,7 @@
 import { R } from "vitest/dist/chunks/environment.d.Dmw5ulng.js";
 import { Rover } from "../src/Rover";
 import { RoverConfig } from "../src/types";
-import { TurningInputTestData } from "./test-utils/types";
+import { MovingInputTestData, TurningInputTestData } from "./test-utils/types";
 
 describe("Rover tests", () => {
   describe("turning", () => {
@@ -55,34 +55,25 @@ describe("Rover tests", () => {
   });
 
   describe("moving forward", () => {
-    it("should update rover's x coordinate correctly when facing 'E' and moving forward", () => {
-      // Arrange
-      const config: RoverConfig = {
-        initialHeading: "E",
-        initialXPosition: 1,
-        initialYPosition: 1,
-      };
-      const rover = new Rover(config);
-      // Act
-      rover.move();
+    it.each<MovingInputTestData>([
+      { initialHeading: "E", expectedXPostition: 1 },
+      { initialHeading: "W", expectedXPostition: 3 },
+    ])(
+      "should update rover's x coordinate correctly when facing $initialHeading and moving forward",
+      ({ initialHeading, expectedXPostition }) => {
+        // Arrange
+        const config: RoverConfig = {
+          initialHeading,
+          initialXPosition: 2,
+          initialYPosition: 2,
+        };
+        const rover = new Rover(config);
+        // Act
+        rover.move();
 
-      // Assert
-      expect(rover.x).toBe(0);
-    });
-
-    it("should update rover's x coordinate correctly when facing 'W' and moving forward", () => {
-      // Arrange
-      const config: RoverConfig = {
-        initialHeading: "W",
-        initialXPosition: 1,
-        initialYPosition: 1,
-      };
-      const rover = new Rover(config);
-      // Act
-      rover.move();
-
-      // Assert
-      expect(rover.x).toBe(2);
-    });
+        // Assert
+        expect(rover.x).toBe(expectedXPostition);
+      }
+    );
   });
 });

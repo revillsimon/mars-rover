@@ -5,3 +5,8 @@ export type TurningInputTestData = {
   initialHeading: Heading;
   expectedHeading: Heading;
 };
+
+export type MovingInputTestData = {
+  initialHeading: Heading;
+  expectedXPostition: number;
+};
