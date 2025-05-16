@@ -14,15 +14,15 @@ describe("Rover tests", () => {
       { turnDirection: "L", currentHeading: "E", expectedHeading: "N" },
     ])(
       "should have a heading of $expectedHeading when turning $turnDirection from a heading of $currentHeading",
-      () => {
+      ({ turnDirection, currentHeading, expectedHeading }) => {
         // Arrange
-        const rover = new Rover("N");
+        const rover = new Rover(currentHeading);
 
         // Act
-        rover.turn("L");
+        rover.turn(turnDirection);
 
         // Assert
-        expect(rover.currentHeading).toBe("W");
+        expect(rover.currentHeading).toBe(expectedHeading);
       }
     );
   });
