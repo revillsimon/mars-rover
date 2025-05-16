@@ -1,4 +1,5 @@
 import { Rover } from "../src/Rover";
+import { RoverConfig } from "../src/types";
 import { TurningInputTestData } from "./test-utils/types";
 
 describe("Rover tests", () => {
@@ -16,7 +17,8 @@ describe("Rover tests", () => {
       "should have a heading of $expectedHeading when turning $turnDirection from a heading of $currentHeading",
       ({ turnDirection, initialHeading, expectedHeading }) => {
         // Arrange
-        const rover = new Rover({ initialHeading });
+        const config: RoverConfig = { initialHeading };
+        const rover = new Rover(config);
 
         // Act
         rover.turn(turnDirection);
