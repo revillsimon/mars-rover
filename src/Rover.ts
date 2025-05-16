@@ -3,6 +3,7 @@ import {
   TurnDirection,
   NextHeadingsLookup,
   RoverConfig,
+  NextMoveLocationLookup,
 } from "./types";
 
 export class Rover {
@@ -57,7 +58,7 @@ export class Rover {
   }
 
   public move(): void {
-    const nextMoveLocationLookup: Record<Heading, number> = {
+    const nextMoveLocationLookup: NextMoveLocationLookup = {
       E: this.x - 1,
       W: this.x + 1,
       N: this.y + 1,

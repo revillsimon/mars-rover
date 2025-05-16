@@ -20,3 +20,5 @@ export type UpperRightPlateauCoordinates = {
 };
 
 export type ParsedGridCoordinates = [number, number];
+
+export type NextMoveLocationLookup = Record<Heading, number>;
