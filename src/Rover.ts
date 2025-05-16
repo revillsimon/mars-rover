@@ -1,15 +1,22 @@
 import { Heading, TurnDirection } from "./types";
 
 export class Rover {
-  heading: Heading;
+  currentHeading: Heading;
 
   constructor(initialHeading: Heading) {
-    this.heading = initialHeading;
+    this.currentHeading = initialHeading;
   }
 
   turn(direction: TurnDirection): void {
     if (direction === "L") {
-      this.heading = this.heading === "N" ? "W" : "S";
+      const nextHeadingsLookup: Record<Heading, Heading> = {
+        N: "W",
+        W: "S",
+        S: "E",
+        E: "N",
+      };
+
+      this.currentHeading = nextHeadingsLookup[this.currentHeading];
     }
   }
 }
