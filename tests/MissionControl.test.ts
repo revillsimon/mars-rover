@@ -29,7 +29,7 @@ describe("MissionControl", () => {
       }
     );
 
-    it.each<GridTestInput>(["1 2", "2 1"])(
+    it.each<GridTestInput>(["1 2", "2 1", "-1, 2", "2 -1"])(
       "should throw error if a specified plateau grid number is less than 2",
       (grid) => {
         // Arrange
