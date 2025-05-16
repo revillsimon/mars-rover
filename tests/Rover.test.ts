@@ -1,3 +1,4 @@
+import { R } from "vitest/dist/chunks/environment.d.Dmw5ulng.js";
 import { Rover } from "../src/Rover";
 import { RoverConfig } from "../src/types";
 import { TurningInputTestData } from "./test-utils/types";
@@ -27,7 +28,16 @@ describe("Rover tests", () => {
         expect(rover.currentHeading).toBe(expectedHeading);
       }
     );
+  });
 
-    it("should", () => {});
+  describe("coordinates", () => {
+    it("should set the rover's initial x and y coordinates to 0,0 by default", () => {
+      // Arrange
+      const config: RoverConfig = { initialHeading: "N" };
+      const rover = new Rover(config);
+
+      // Assert
+      expect({ x: rover.x, y: rover.y }).toEqual({ x: 0, y: 0 });
+    });
   });
 });

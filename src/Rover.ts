@@ -7,6 +7,8 @@ import {
 
 export class Rover {
   private _currentHeading: Heading;
+  private _x: number = 0;
+  private _y: number = 0;
 
   private readonly nextHeadingsLookup: NextHeadingsLookup = {
     L: {
@@ -33,6 +35,14 @@ export class Rover {
 
   private set currentHeading(value: Heading) {
     this._currentHeading = value;
+  }
+
+  public get x(): number {
+    return this._x;
+  }
+
+  public get y(): number {
+    return this._y;
   }
 
   public turn(direction: TurnDirection): void {
