@@ -39,5 +39,18 @@ describe("Rover tests", () => {
       // Assert
       expect({ x: rover.x, y: rover.y }).toEqual({ x: 0, y: 0 });
     });
+
+    it("should configure the rover's initial x and y coordinates to custom values", () => {
+      // Arrange
+      const config: RoverConfig = {
+        initialHeading: "N",
+        initialXPosition: 1,
+        initialYPosition: 2,
+      };
+      const rover = new Rover(config);
+
+      // Assert
+      expect({ x: rover.x, y: rover.y }).toEqual({ x: 1, y: 2 });
+    });
   });
 });

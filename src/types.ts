@@ -9,4 +9,6 @@ export type NextHeadingsLookup = Record<
 
 export interface RoverConfig {
   initialHeading: Heading;
+  initialXPosition?: number;
+  initialYPosition?: number;
 }

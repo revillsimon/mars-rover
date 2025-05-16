@@ -7,8 +7,8 @@ import {
 
 export class Rover {
   private _currentHeading: Heading;
-  private _x: number = 0;
-  private _y: number = 0;
+  private _x: number;
+  private _y: number;
 
   private readonly nextHeadingsLookup: NextHeadingsLookup = {
     L: {
@@ -27,6 +27,8 @@ export class Rover {
 
   constructor(config: RoverConfig) {
     this._currentHeading = config.initialHeading;
+    this._x = config.initialXPosition ?? 0;
+    this._y = config.initialYPosition ?? 0;
   }
 
   public get currentHeading(): Heading {
