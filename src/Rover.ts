@@ -11,18 +11,8 @@ export class Rover {
   private _y: number;
 
   private readonly nextHeadingsLookup: NextHeadingsLookup = {
-    L: {
-      N: "W",
-      W: "S",
-      S: "E",
-      E: "N",
-    },
-    R: {
-      N: "E",
-      E: "S",
-      S: "W",
-      W: "N",
-    },
+    L: ["W", "S", "E", "N"],
+    R: ["E", "S", "W", "N"],
   };
 
   constructor(config: RoverConfig) {
@@ -56,8 +46,10 @@ export class Rover {
   }
 
   public turn(direction: TurnDirection): void {
-    this.currentHeading =
-      this.nextHeadingsLookup[direction][this.currentHeading];
+    const headings = this.nextHeadingsLookup[direction];
+    const nextIndex =
+      (headings.indexOf(this._currentHeading) + 1) % headings.length;
+    this.currentHeading = headings[nextIndex];
   }
 
   public move(): void {
