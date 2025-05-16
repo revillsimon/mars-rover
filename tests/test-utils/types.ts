@@ -8,5 +8,6 @@ export type TurningInputTestData = {
 
 export type MovingInputTestData = {
   initialHeading: Heading;
-  expectedXPostition: number;
+  expectedXPosition?: number;
+  expectedYPosition?: number;
 };

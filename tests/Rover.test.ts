@@ -56,11 +56,11 @@ describe("Rover tests", () => {
 
   describe("moving forward", () => {
     it.each<MovingInputTestData>([
-      { initialHeading: "E", expectedXPostition: 1 },
-      { initialHeading: "W", expectedXPostition: 3 },
+      { initialHeading: "E", expectedXPosition: 1 },
+      { initialHeading: "W", expectedXPosition: 3 },
     ])(
       "should update rover's x coordinate correctly when facing $initialHeading and moving forward",
-      ({ initialHeading, expectedXPostition }) => {
+      ({ initialHeading, expectedXPosition }) => {
         // Arrange
         const config: RoverConfig = {
           initialHeading,
@@ -68,11 +68,33 @@ describe("Rover tests", () => {
           initialYPosition: 2,
         };
         const rover = new Rover(config);
+
         // Act
         rover.move();
 
         // Assert
-        expect(rover.x).toBe(expectedXPostition);
+        expect(rover.x).toBe(expectedXPosition);
+      }
+    );
+
+    it.each<MovingInputTestData>([
+      { initialHeading: "N", expectedYPosition: 3 },
+    ])(
+      "should update rover's y coordinate correctly when facing 'N' and moving forward",
+      ({ initialHeading, expectedYPosition }) => {
+        // Arrange
+        const config: RoverConfig = {
+          initialHeading,
+          initialXPosition: 2,
+          initialYPosition: 2,
+        };
+        const rover = new Rover(config);
+
+        // Act
+        rover.move();
+
+        // Assert
+        expect(rover.y).toBe(expectedYPosition);
       }
     );
   });
