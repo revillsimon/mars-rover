@@ -1,9 +1,15 @@
-export class Rover {
-  heading = "N";
+import { Heading, TurnDirection } from "./types";
 
-  turn(direction: "L"): void {
+export class Rover {
+  heading: Heading;
+
+  constructor(initialHeading: Heading) {
+    this.heading = initialHeading;
+  }
+
+  turn(direction: TurnDirection): void {
     if (direction === "L") {
-      this.heading = "W";
+      this.heading = this.heading === "N" ? "W" : "S";
     }
   }
 }
