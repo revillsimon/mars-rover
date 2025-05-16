@@ -1,13 +1,9 @@
 import { Rover } from "../src/Rover";
-import { Heading, TurnDirection } from "../src/types";
+import { TurningInputTestData } from "./test-utils/types";
 
 describe("Rover tests", () => {
   describe("turning", () => {
-    it.each<{
-      turnDirection: TurnDirection;
-      currentHeading: Heading;
-      expectedHeading: Heading;
-    }>([
+    it.each<TurningInputTestData>([
       { turnDirection: "L", currentHeading: "N", expectedHeading: "W" },
       { turnDirection: "L", currentHeading: "W", expectedHeading: "S" },
       { turnDirection: "L", currentHeading: "S", expectedHeading: "E" },
