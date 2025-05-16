@@ -2,6 +2,6 @@ import { Heading, TurnDirection } from "../../src/types";
 
 export type TurningInputTestData = {
   turnDirection: TurnDirection;
-  currentHeading: Heading;
+  initialHeading: Heading;
   expectedHeading: Heading;
 };

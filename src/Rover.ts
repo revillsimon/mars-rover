@@ -1,4 +1,9 @@
-import { Heading, TurnDirection, NextHeadingsLookup } from "./types";
+import {
+  Heading,
+  TurnDirection,
+  NextHeadingsLookup,
+  RoverConfig,
+} from "./types";
 
 export class Rover {
   currentHeading: Heading;
@@ -18,8 +23,8 @@ export class Rover {
     },
   };
 
-  constructor(initialHeading: Heading) {
-    this.currentHeading = initialHeading;
+  constructor(config: RoverConfig) {
+    this.currentHeading = config.initialHeading;
   }
 
   turn(direction: TurnDirection): void {

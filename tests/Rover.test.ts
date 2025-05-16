@@ -4,19 +4,19 @@ import { TurningInputTestData } from "./test-utils/types";
 describe("Rover tests", () => {
   describe("turning", () => {
     it.each<TurningInputTestData>([
-      { turnDirection: "L", currentHeading: "N", expectedHeading: "W" },
-      { turnDirection: "L", currentHeading: "W", expectedHeading: "S" },
-      { turnDirection: "L", currentHeading: "S", expectedHeading: "E" },
-      { turnDirection: "L", currentHeading: "E", expectedHeading: "N" },
-      { turnDirection: "R", currentHeading: "N", expectedHeading: "E" },
-      { turnDirection: "R", currentHeading: "E", expectedHeading: "S" },
-      { turnDirection: "R", currentHeading: "S", expectedHeading: "W" },
-      { turnDirection: "R", currentHeading: "W", expectedHeading: "N" },
+      { turnDirection: "L", initialHeading: "N", expectedHeading: "W" },
+      { turnDirection: "L", initialHeading: "W", expectedHeading: "S" },
+      { turnDirection: "L", initialHeading: "S", expectedHeading: "E" },
+      { turnDirection: "L", initialHeading: "E", expectedHeading: "N" },
+      { turnDirection: "R", initialHeading: "N", expectedHeading: "E" },
+      { turnDirection: "R", initialHeading: "E", expectedHeading: "S" },
+      { turnDirection: "R", initialHeading: "S", expectedHeading: "W" },
+      { turnDirection: "R", initialHeading: "W", expectedHeading: "N" },
     ])(
       "should have a heading of $expectedHeading when turning $turnDirection from a heading of $currentHeading",
-      ({ turnDirection, currentHeading, expectedHeading }) => {
+      ({ turnDirection, initialHeading, expectedHeading }) => {
         // Arrange
-        const rover = new Rover(currentHeading);
+        const rover = new Rover({ initialHeading });
 
         // Act
         rover.turn(turnDirection);

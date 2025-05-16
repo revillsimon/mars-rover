@@ -6,3 +6,7 @@ export type NextHeadingsLookup = Record<
   TurnDirection,
   Record<Heading, Heading>
 >;
+
+export interface RoverConfig {
+  initialHeading: Heading;
+}
