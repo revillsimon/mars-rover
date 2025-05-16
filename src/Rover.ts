@@ -27,15 +27,15 @@ export class Rover {
     this._currentHeading = config.initialHeading;
   }
 
-  get currentHeading(): Heading {
+  public get currentHeading(): Heading {
     return this._currentHeading;
   }
 
-  set currentHeading(value: Heading) {
+  public set currentHeading(value: Heading) {
     this._currentHeading = value;
   }
 
-  turn(direction: TurnDirection): void {
+  public turn(direction: TurnDirection): void {
     this.currentHeading =
       this.nextHeadingsLookup[direction][this.currentHeading];
   }
