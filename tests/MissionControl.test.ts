@@ -16,15 +16,15 @@ describe("MissionControl", () => {
       });
     });
 
-    it.each<GridTestInput>(["-1 5", "1 -5"])(
-      "should throw error if a specified plateau grid number is negative",
+    it.each<GridTestInput>(["1 2", "2 1"])(
+      "should throw error if a specified plateau grid number is less than 2",
       (grid) => {
         // Arrange
         const config: MissionControlConfig = { grid };
 
         // Assert
         expect(() => new MissionControl(config)).toThrowError(
-          "Negative grid number detected in config. Grid numbers must be positive integers."
+          "Invalid grid size detected in config. Grid dimensions must be greater than or equal to 2."
         );
       }
     );
