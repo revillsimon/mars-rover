@@ -10,8 +10,13 @@ export interface RoverConfig {
   initialYPosition: number;
 }
 
+export type GridInput = `${number} ${number}`;
+
+export type RoverInput = `${number} ${number} ${Heading}`;
+
 export interface MissionControlConfig {
-  grid: string;
+  grid: GridInput;
+  roverA: RoverInput;
 }
 
 export type UpperRightPlateauCoordinates = {
@@ -19,6 +24,14 @@ export type UpperRightPlateauCoordinates = {
   y: number;
 };
 
+export type RoverPosition = {
+  x: number;
+  y: number;
+  heading: Heading;
+};
+
 export type ParsedGridCoordinates = [number, number];
 
 export type NextMoveLocationLookup = Record<Heading, number>;
+
+export type ParsedRoverCoordinates = [number, number, Heading];

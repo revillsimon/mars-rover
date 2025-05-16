@@ -12,4 +12,4 @@ export type MovingInputTestData = {
   expectedYPosition?: number;
 };
 
-export type GridTestInput = string;
+export type GridTestInput = string | `${number} ${number}`;
