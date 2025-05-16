@@ -9,3 +9,7 @@ export interface RoverConfig {
   initialXPosition?: number;
   initialYPosition?: number;
 }
+
+export interface MissionControlConfig {
+  grid: string;
+}
