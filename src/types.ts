@@ -13,3 +13,10 @@ export interface RoverConfig {
 export interface MissionControlConfig {
   grid: string;
 }
+
+export type UpperRightPlateauCoordinates = {
+  x: number;
+  y: number;
+};
+
+export type ParsedGridCoordinates = [number, number];
