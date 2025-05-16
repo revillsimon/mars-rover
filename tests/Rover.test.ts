@@ -11,6 +11,7 @@ describe("Rover tests", () => {
       { turnDirection: "L", currentHeading: "N", expectedHeading: "W" },
       { turnDirection: "L", currentHeading: "W", expectedHeading: "S" },
       { turnDirection: "L", currentHeading: "S", expectedHeading: "E" },
+      { turnDirection: "L", currentHeading: "E", expectedHeading: "N" },
     ])(
       "should have a heading of $expectedHeading when turning $turnDirection from a heading of $currentHeading",
       () => {
