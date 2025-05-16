@@ -43,6 +43,10 @@ export class Rover {
     return this._x;
   }
 
+  private set x(value: number) {
+    this._x = value;
+  }
+
   public get y(): number {
     return this._y;
   }
@@ -50,5 +54,11 @@ export class Rover {
   public turn(direction: TurnDirection): void {
     this.currentHeading =
       this.nextHeadingsLookup[direction][this.currentHeading];
+  }
+
+  public move(): void {
+    if (this.currentHeading === "E") {
+      this.x === this.x--;
+    }
   }
 }

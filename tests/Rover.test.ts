@@ -53,4 +53,21 @@ describe("Rover tests", () => {
       expect({ x: rover.x, y: rover.y }).toEqual({ x: 1, y: 2 });
     });
   });
+
+  describe("moving", () => {
+    it("should update rover's x coordinate correctly when facing 'E' and moving 'E'", () => {
+      // Arrange
+      const config: RoverConfig = {
+        initialHeading: "E",
+        initialXPosition: 1,
+        initialYPosition: 1,
+      };
+      const rover = new Rover(config);
+      // Act
+      rover.move();
+
+      // Assert
+      expect(rover.x).toBe(0);
+    });
+  });
 });
