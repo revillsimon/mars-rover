@@ -31,7 +31,7 @@ export class Rover {
     return this._currentHeading;
   }
 
-  public set currentHeading(value: Heading) {
+  private set currentHeading(value: Heading) {
     this._currentHeading = value;
   }
 
