@@ -1,2 +1,0 @@
-turning left to all possible directions - N, W, S, E - updated rover heading
-turning right to all possible directions - N, E, S, W - updated rover heading
