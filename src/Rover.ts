@@ -17,8 +17,8 @@ export class Rover {
 
   constructor(config: RoverConfig) {
     this._currentHeading = config.initialHeading;
-    this._x = config.initialXPosition ?? 0;
-    this._y = config.initialYPosition ?? 0;
+    this._x = config.initialXPosition;
+    this._y = config.initialYPosition;
   }
 
   public get currentHeading(): Heading {

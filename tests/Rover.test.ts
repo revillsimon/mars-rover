@@ -17,7 +17,11 @@ describe("Rover tests", () => {
       "should have a heading of $expectedHeading when turning $turnDirection from a heading of $currentHeading",
       ({ turnDirection, initialHeading, expectedHeading }) => {
         // Arrange
-        const config: RoverConfig = { initialHeading };
+        const config: RoverConfig = {
+          initialHeading,
+          initialXPosition: 0,
+          initialYPosition: 0,
+        };
         const rover = new Rover(config);
 
         // Act
@@ -30,15 +34,6 @@ describe("Rover tests", () => {
   });
 
   describe("coordinates", () => {
-    it("should set the rover's initial x and y coordinates to 0,0 by default", () => {
-      // Arrange
-      const config: RoverConfig = { initialHeading: "N" };
-      const rover = new Rover(config);
-
-      // Assert
-      expect({ x: rover.x, y: rover.y }).toEqual({ x: 0, y: 0 });
-    });
-
     it("should configure the rover's initial x and y coordinates to custom values", () => {
       // Arrange
       const config: RoverConfig = {
