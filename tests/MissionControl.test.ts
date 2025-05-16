@@ -1,5 +1,6 @@
 import { MissionControl } from "../src/MissionControl";
 import { MissionControlConfig } from "../src/types";
+import { GridTestInput } from "./test-utils/types";
 
 describe("MissionControl", () => {
   describe("initialise plateau grid", () => {
@@ -14,5 +15,18 @@ describe("MissionControl", () => {
         y: 5,
       });
     });
+
+    it.each<GridTestInput>(["-1 5", "1 -5"])(
+      "should throw error if a specified plateau grid number is negative",
+      (grid) => {
+        // Arrange
+        const config: MissionControlConfig = { grid };
+
+        // Assert
+        expect(() => new MissionControl(config)).toThrowError(
+          "Negative grid number detected in config. Grid numbers must be positive integers."
+        );
+      }
+    );
   });
 });

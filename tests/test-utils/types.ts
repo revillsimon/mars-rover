@@ -11,3 +11,5 @@ export type MovingInputTestData = {
   expectedXPosition?: number;
   expectedYPosition?: number;
 };
+
+export type GridTestInput = string;
