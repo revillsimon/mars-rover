@@ -1,4 +1,3 @@
-import { R } from "vitest/dist/chunks/environment.d.Dmw5ulng.js";
 import { Rover } from "../src/Rover";
 import { RoverConfig } from "../src/types";
 import { MovingInputTestData, TurningInputTestData } from "./test-utils/types";
