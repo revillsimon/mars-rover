@@ -27,5 +27,7 @@ describe("Rover tests", () => {
         expect(rover.currentHeading).toBe(expectedHeading);
       }
     );
+
+    it("should", () => {});
   });
 });

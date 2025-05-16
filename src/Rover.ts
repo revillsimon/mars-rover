@@ -6,7 +6,7 @@ import {
 } from "./types";
 
 export class Rover {
-  currentHeading: Heading;
+  private _currentHeading: Heading;
 
   private readonly nextHeadingsLookup: NextHeadingsLookup = {
     L: {
@@ -24,7 +24,15 @@ export class Rover {
   };
 
   constructor(config: RoverConfig) {
-    this.currentHeading = config.initialHeading;
+    this._currentHeading = config.initialHeading;
+  }
+
+  get currentHeading(): Heading {
+    return this._currentHeading;
+  }
+
+  set currentHeading(value: Heading) {
+    this._currentHeading = value;
   }
 
   turn(direction: TurnDirection): void {
