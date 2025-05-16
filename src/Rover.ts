@@ -58,7 +58,11 @@ export class Rover {
 
   public move(): void {
     if (this.currentHeading === "E") {
-      this.x === this.x--;
+      this.x = this.x - 1;
+    }
+
+    if (this.currentHeading === "W") {
+      this.x = this.x + 1;
     }
   }
 }
