@@ -79,8 +79,9 @@ describe("Rover tests", () => {
 
     it.each<MovingInputTestData>([
       { initialHeading: "N", expectedYPosition: 3 },
+      { initialHeading: "S", expectedYPosition: 1 },
     ])(
-      "should update rover's y coordinate correctly when facing 'N' and moving forward",
+      "should update rover's y coordinate correctly when facing $initialHeading and moving forward",
       ({ initialHeading, expectedYPosition }) => {
         // Arrange
         const config: RoverConfig = {

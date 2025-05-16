@@ -72,5 +72,9 @@ export class Rover {
     if (this.currentHeading === "N") {
       this.y = this.y + 1;
     }
+
+    if (this.currentHeading === "S") {
+      this.y = this.y - 1;
+    }
   }
 }
