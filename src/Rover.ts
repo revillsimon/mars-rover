@@ -46,15 +46,15 @@ export class Rover {
     this._y = value;
   }
 
+  private isOnXAxis(): boolean {
+    return this.currentHeading === "W" || this.currentHeading === "E";
+  }
+
   public turn(direction: TurnDirection): void {
     const headings = this.nextHeadingsLookup[direction];
     const nextIndex =
       (headings.indexOf(this._currentHeading) + 1) % headings.length;
     this.currentHeading = headings[nextIndex];
-  }
-
-  private isOnXAxis(): boolean {
-    return this.currentHeading === "W" || this.currentHeading === "E";
   }
 
   public move(): void {
