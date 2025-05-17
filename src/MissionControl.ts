@@ -1,3 +1,4 @@
+import { GridParser } from "./GridParser";
 import {
   Heading,
   MissionControlConfig,
@@ -9,13 +10,13 @@ import {
 } from "./types";
 
 export class MissionControl {
+  private gridParser: GridParser;
   private _upperRightPlateauCoordinates: UpperRightPlateauCoordinates;
-
   private _roverA: RoverPosition;
 
   constructor({ grid, roverA }: MissionControlConfig) {
-    const [x, y] = this.parseGridCoordinates(grid);
-    this.validateGridCoordinates(x, y);
+    this.gridParser = new GridParser();
+    const [x, y] = this.gridParser.parseGridCoordinates(grid);
     this._upperRightPlateauCoordinates = { x, y };
 
     const [roverAXPosition, roverAYPosition, roverAHeading] =
@@ -25,31 +26,6 @@ export class MissionControl {
       y: roverAYPosition,
       heading: roverAHeading,
     };
-  }
-
-  private validateGridCoordinates(
-    x: number | undefined,
-    y: number | undefined
-  ): void {
-    if (!x || !y) {
-      throw new Error(
-        "Invalid grid coordinates detected in config. Please enter two positive integers greater than or equal to 2, separated by a space."
-      );
-    }
-
-    const hasInvalidGridSize = x < 2 || y < 2;
-
-    if (hasInvalidGridSize) {
-      throw new Error(
-        "Invalid grid size detected in config. Grid dimensions must be greater than or equal to 2."
-      );
-    }
-  }
-
-  private parseGridCoordinates(input: string): ParsedGridCoordinates {
-    const [x, y] = input.split(" ").map((number) => parseInt(number));
-
-    return [x, y];
   }
 
   public get upperRightPlateauCoordinates(): UpperRightPlateauCoordinates {
