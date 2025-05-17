@@ -7,13 +7,13 @@ import {
   ParsedRoverCoordinates,
   RoverInput,
   RoverPosition,
-  UpperRightPlateauCoordinates,
+  PlateauCoordinates,
 } from "./types";
 
 export class MissionControl {
   private gridParser: GridParser;
   private roverParser: RoverParser;
-  private _gridCoordinates: UpperRightPlateauCoordinates;
+  private _gridCoordinates: PlateauCoordinates;
   private _roverA: RoverPosition;
 
   constructor({ grid, roverA }: MissionControlConfig) {
@@ -32,7 +32,7 @@ export class MissionControl {
     };
   }
 
-  public get gridCoordinates(): UpperRightPlateauCoordinates {
+  public get gridCoordinates(): PlateauCoordinates {
     return this._gridCoordinates;
   }
 

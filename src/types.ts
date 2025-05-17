@@ -19,7 +19,7 @@ export interface MissionControlConfig {
   roverA: RoverInput;
 }
 
-export type UpperRightPlateauCoordinates = {
+export type PlateauCoordinates = {
   x: number;
   y: number;
 };
