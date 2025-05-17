@@ -1,11 +1,7 @@
 import { GridParser } from "./GridParser";
 import { RoverParser } from "./RoverParser";
 import {
-  Heading,
   MissionControlConfig,
-  ParsedGridCoordinates,
-  ParsedRoverCoordinates,
-  RoverInput,
   RoverPosition,
   PlateauCoordinates,
 } from "./types";
@@ -21,14 +17,7 @@ export class MissionControl {
     this.roverParser = new RoverParser();
 
     this._gridCoordinates = this.gridParser.parseGridCoordinates(grid);
-
-    const [roverAXPosition, roverAYPosition, roverAHeading] =
-      this.roverParser.parseRoverCoordinates(roverA);
-    this._roverA = {
-      x: roverAXPosition,
-      y: roverAYPosition,
-      heading: roverAHeading,
-    };
+    this._roverA = this.roverParser.parseRoverCoordinates(roverA);
   }
 
   public get gridCoordinates(): PlateauCoordinates {

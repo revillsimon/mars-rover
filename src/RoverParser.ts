@@ -1,9 +1,13 @@
-import { RoverInput, ParsedRoverCoordinates, Heading } from "./types";
+import { RoverInput, Heading, RoverPosition } from "./types";
 
 export class RoverParser {
-  public parseRoverCoordinates(input: RoverInput): ParsedRoverCoordinates {
+  public parseRoverCoordinates(input: RoverInput): RoverPosition {
     const [x, y, heading] = input.split(" ");
 
-    return [parseInt(x), parseInt(y), heading as Heading];
+    return {
+      x: parseInt(x),
+      y: parseInt(y),
+      heading: heading as Heading,
+    };
   }
 }
