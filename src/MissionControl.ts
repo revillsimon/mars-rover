@@ -11,13 +11,13 @@ import {
 
 export class MissionControl {
   private gridParser: GridParser;
-  private _upperRightPlateauCoordinates: UpperRightPlateauCoordinates;
+  private _gridCoordinates: UpperRightPlateauCoordinates;
   private _roverA: RoverPosition;
 
   constructor({ grid, roverA }: MissionControlConfig) {
     this.gridParser = new GridParser();
     const [x, y] = this.gridParser.parseGridCoordinates(grid);
-    this._upperRightPlateauCoordinates = { x, y };
+    this._gridCoordinates = { x, y };
 
     const [roverAXPosition, roverAYPosition, roverAHeading] =
       this.parseRoverCoordinates(roverA);
@@ -28,8 +28,8 @@ export class MissionControl {
     };
   }
 
-  public get upperRightPlateauCoordinates(): UpperRightPlateauCoordinates {
-    return this._upperRightPlateauCoordinates;
+  public get gridCoordinates(): UpperRightPlateauCoordinates {
+    return this._gridCoordinates;
   }
 
   private parseRoverCoordinates(input: RoverInput): ParsedRoverCoordinates {

@@ -10,7 +10,7 @@ describe("MissionControl", () => {
       const missionControl = new MissionControl(config);
 
       // Assert
-      expect(missionControl.upperRightPlateauCoordinates).toEqual({
+      expect(missionControl.gridCoordinates).toEqual({
         x: 5,
         y: 5,
       });
