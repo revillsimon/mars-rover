@@ -1,4 +1,5 @@
 import { GridParser } from "./GridParser";
+import { RoverParser } from "./RoverParser";
 import {
   Heading,
   MissionControlConfig,
@@ -11,16 +12,19 @@ import {
 
 export class MissionControl {
   private gridParser: GridParser;
+  private roverParser: RoverParser;
   private _gridCoordinates: UpperRightPlateauCoordinates;
   private _roverA: RoverPosition;
 
   constructor({ grid, roverA }: MissionControlConfig) {
     this.gridParser = new GridParser();
+    this.roverParser = new RoverParser();
+
     const [x, y] = this.gridParser.parseGridCoordinates(grid);
     this._gridCoordinates = { x, y };
 
     const [roverAXPosition, roverAYPosition, roverAHeading] =
-      this.parseRoverCoordinates(roverA);
+      this.roverParser.parseRoverCoordinates(roverA);
     this._roverA = {
       x: roverAXPosition,
       y: roverAYPosition,
@@ -30,12 +34,6 @@ export class MissionControl {
 
   public get gridCoordinates(): UpperRightPlateauCoordinates {
     return this._gridCoordinates;
-  }
-
-  private parseRoverCoordinates(input: RoverInput): ParsedRoverCoordinates {
-    const [x, y, heading] = input.split(" ");
-
-    return [parseInt(x), parseInt(y), heading as Heading];
   }
 
   public get roverA() {
