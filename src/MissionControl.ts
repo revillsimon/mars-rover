@@ -20,8 +20,7 @@ export class MissionControl {
     this.gridParser = new GridParser();
     this.roverParser = new RoverParser();
 
-    const [x, y] = this.gridParser.parseGridCoordinates(grid);
-    this._gridCoordinates = { x, y };
+    this._gridCoordinates = this.gridParser.parseGridCoordinates(grid);
 
     const [roverAXPosition, roverAYPosition, roverAHeading] =
       this.roverParser.parseRoverCoordinates(roverA);

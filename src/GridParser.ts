@@ -1,12 +1,12 @@
-import { ParsedGridCoordinates } from "./types";
+import { PlateauCoordinates } from "./types";
 
 export class GridParser {
-  public parseGridCoordinates(input: string): ParsedGridCoordinates {
+  public parseGridCoordinates(input: string): PlateauCoordinates {
     const [x, y] = input.split(" ").map((number) => parseInt(number));
 
     this.validateGridCoordinates(x, y);
 
-    return [x, y];
+    return { x, y };
   }
 
   private validateGridCoordinates(

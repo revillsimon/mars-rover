@@ -30,7 +30,7 @@ export type RoverPosition = {
   heading: Heading;
 };
 
-export type ParsedGridCoordinates = [number, number];
+export type ParsedGridCoordinates = PlateauCoordinates;
 
 export type NextMoveLocationLookup = Record<Heading, number>;
 
